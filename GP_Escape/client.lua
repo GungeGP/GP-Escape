@@ -15,10 +15,10 @@ Citizen.CreateThread(function()
     while true do
       Citizen.Wait(0)
       local pos = GetEntityCoords(GetPlayerPed(-1), true)
-        if(Vdist(pos.x, pos.y, pos.z, Config.PoliceShutDownAlarm+1) < 1.4)then
-          DrawMarker(27, Config.PoliceShutDownAlarm - 1.00, 0, 0, 0, 0, 0, 0, 2.0001, 2.0001, 1.5001, 0, 180, 249,165, false, false, 0,true)
-          if GetDistanceBetweenCoords(Config.PoliceShutDownAlarm, GetEntityCoords(GetPlayerPed(-1))) < 3 then
-            DrawText3Ds(Config.PoliceShutDownAlarm+1, Config.AlarmOffPolice)
+        if(Vdist(pos.x, pos.y, pos.z, 1690.8388671875,2541.2941894531,54.579845428467+1) < 1.4)then
+          DrawMarker(27, 1690.8388671875,2541.2941894531,54.579845428467 - 1.00, 0, 0, 0, 0, 0, 0, 2.0001, 2.0001, 1.5001, 0, 180, 249,165, false, false, 0,true)
+          if GetDistanceBetweenCoords(1690.8388671875,2541.2941894531,54.579845428467, GetEntityCoords(GetPlayerPed(-1))) < 3 then
+            DrawText3Ds(1690.8388671875,2541.2941894531,54.579845428467+1, Config.AlarmOffPolice)
             if IsControlJustPressed(1, 51) then -- E
                 stopAlarm()
             end
@@ -31,12 +31,12 @@ Citizen.CreateThread(function()
   while true do
     Citizen.Wait(0)
     local pos = GetEntityCoords(GetPlayerPed(-1), true)
-      if(Vdist(pos.x, pos.y, pos.z, Config.HouseLeave+1) < 1.4)then
-        if GetDistanceBetweenCoords(Config.HouseLeave, GetEntityCoords(GetPlayerPed(-1))) < 3 then
-          DrawText3Ds(Config.HouseLeave+1, Config.LeaveHouse)
+      if(Vdist(pos.x, pos.y, pos.z, 342.169921875,437.81594848633,149.38079833984+1) < 1.4)then
+        if GetDistanceBetweenCoords(342.169921875,437.81594848633,149.38079833984, GetEntityCoords(GetPlayerPed(-1))) < 3 then
+          DrawText3Ds(342.169921875,437.81594848633,149.38079833984+1, Config.LeaveHouse)
           if IsControlJustPressed(1, 51) then -- E
-            SetEntityHeading(PlayerPedId(), Config.HouseLeaveHeading)
-            SetEntityCoordsNoOffset(PlayerPedId(), Config.HouseLeaveTeleportTO, 0)
+            SetEntityHeading(PlayerPedId(), 299.715)
+            SetEntityCoordsNoOffset(PlayerPedId(), 348.63415527344,442.11334228516,147.70091247559, 0)
           end
       end
     end
@@ -52,7 +52,6 @@ Citizen.CreateThread(function()
           DrawText3Ds(347.03472900391,441.0163269043,147.70216369629+1, Config.RemoveTracker)
           if IsControlJustPressed(1, 51) then -- E
             if tracking then
-              fjernlnke()
               TriggerEvent('your_cutscene_event', 'apa_fin_cel_apt3')
             else
               vRP.notify({Config.NoTracker}) -- vRP notify
@@ -67,11 +66,11 @@ Citizen.CreateThread(function()
     while true do
       Citizen.Wait(0)
       local pos = GetEntityCoords(GetPlayerPed(-1), true)
-        if(Vdist(pos.x, pos.y, pos.z, Config.StartEscape+1) < 1.4)then
-          DrawMarker(27, Config.StartEscape - 1.00, 0, 0, 0, 0, 0, 0, 2.0001, 2.0001, 1.5001, 0, 180, 249,165, false, false, 0,true)
-          if GetDistanceBetweenCoords(Config.StartEscape, GetEntityCoords(GetPlayerPed(-1))) < 3 then
-            DrawText3Ds(Config.StartEscape+0.60, Config.PayMoney)
-            DrawText3Ds(Config.StartEscape+0.50, Config.PayMoney2)
+        if(Vdist(pos.x, pos.y, pos.z, 1625.4057617188,2569.2751464844,45.564865112305+1) < 1.4)then
+          DrawMarker(27, 1625.4057617188,2569.2751464844,45.564865112305 - 1.00, 0, 0, 0, 0, 0, 0, 2.0001, 2.0001, 1.5001, 0, 180, 249,165, false, false, 0,true)
+          if GetDistanceBetweenCoords(1625.4057617188,2569.2751464844,45.564865112305, GetEntityCoords(GetPlayerPed(-1))) < 3 then
+            DrawText3Ds(1625.4057617188,2569.2751464844,45.564865112305+0.60, Config.PayMoney)
+            DrawText3Ds(1625.4057617188,2569.2751464844,45.564865112305+0.50, Config.PayMoney2)
             if IsControlJustPressed(1, 51) then -- E
               if allowescape then
                 TriggerServerEvent('escape:checkmoney')
@@ -97,11 +96,11 @@ AddEventHandler('startescape', function()
     Citizen.Wait(0)
   end
     StartAlarm("PRISON_ALARMS", 1)
-    SetEntityHeading(PlayerPedId(), Config.TeleportOutsidePrisonHeading)
-    SetEntityCoordsNoOffset(PlayerPedId(), Config.TeleportOutsidePrison, 0)
+    SetEntityHeading(PlayerPedId(), 356.957)
+    SetEntityCoordsNoOffset(PlayerPedId(), 1643.7371826172,2585.1936035156,45.564861297607, 0)
     SendNotifcation('Stretch', Config.ContactTitel, Config.ContactNotify)
     tracking = true
-    SetNewWaypoint(Config.WaypointToCutscene)
+    SetNewWaypoint(347.03472900391,441.0163269043)
 end)
 
 RegisterNetEvent('startescape1')
@@ -111,11 +110,11 @@ AddEventHandler('startescape1', function()
     Citizen.Wait(0)
   end
     StartAlarm("PRISON_ALARMS", 1)
-    SetEntityHeading(PlayerPedId(), Config.TeleportOutsidePrisonHeading)
-    SetEntityCoordsNoOffset(PlayerPedId(), Config.TeleportOutsidePrison, 0)
+    SetEntityHeading(PlayerPedId(), 356.957)
+    SetEntityCoordsNoOffset(PlayerPedId(), 1643.7371826172,2585.1936035156,45.564861297607, 0)
     SendNotifcation('Stretch', Config.ContactTitel, Config.ContactNotify2)
     tracking = true
-    SetNewWaypoint(Config.WaypointToCutscene)
+    SetNewWaypoint(347.03472900391,441.0163269043)
 end)
 
 function stopAlarm()
@@ -136,28 +135,6 @@ function stopAlarm()
         StopAlarm("PRISON_ALARMS", 1)
       end
     end)
-end
-
-function fjernlnke()
-  TriggerEvent("mythic_progressbar:client:progress", { -- Requies mythic_progressbar
-    name = "GP_Escape",
-    duration = 3600,
-    label = Config.RemoveTrackerBar,
-    useWhileDead = false,
-    canCancel = true,
-    controlDisables = {
-      disableMovement = true,
-      disableCarMovement = true,
-      disableMouse = false,
-      disableCombat = true,
-    }
-  }, function(status)
-    if not status then
-      StopAlarm("PRISON_ALARMS", 1)
-      vRP.notify({Config.TrackerOff}) -- vRP notify
-      tracking = false
-    end
-  end)
 end
 
 function SendNotifcation(author, subject, string)
@@ -300,6 +277,9 @@ SetPedPropIndex(GetPlayerPed(-1), 1, glass_prop, glass_tex, 0)
       -- After the cutscene
 
     SetEntityHeading(PlayerPedId(), 309.957)
+    StopAlarm("PRISON_ALARMS", 1)
+    vRP.notify({Config.TrackerOff}) -- vRP notify
+    tracking = false
     SetEntityCoordsNoOffset(PlayerPedId(), 329.26611328125,423.98629760742,148.99241638184, 0) -- Teleport in front of the sofa, instead of on top.
     DoScreenFadeIn(2500)
 
